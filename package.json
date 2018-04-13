@@ -1,0 +1,25 @@
+{
+  "name": "explorphotos",
+  "version": "1.0.0",
+  "description": "Explor.photos is an open-source image gallery built using AngularJS and Node.js that pinpoints photos with geolocation information in a beautifully displayed UI",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "mongoose": "^5.0.14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjuszczak/explorphotos.git"
+  },
+  "author": "Charles Juszczak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cjuszczak/explorphotos/issues"
+  },
+  "homepage": "https://github.com/cjuszczak/explorphotos#readme"
+}
