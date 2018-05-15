@@ -1,6 +1,6 @@
-# explor.photos
+# Explor.photos
 
-explor.photos is my personal playground of sorts for playing with various new JavaScript frameworks to build my own personal photo gallery. This is a work in progress and generally only updated time permitting.
+Explor.photos is my personal playground of sorts for playing with various new JavaScript frameworks to build my own personal photo gallery. This is a work in progress and generally only updated time permitting. Currently the back-end work is in progress and the front-end work will start once a sufficient amount of the back-end is available for use.
 
 ### Prerequisites
 
@@ -8,10 +8,11 @@ explor.photos is my personal playground of sorts for playing with various new Ja
 * [npm](https://www.npmjs.org)
 * [AWS Account](https://aws.amazon.com)
 * [Google Maps](https://developers.google.com/maps)
+* [MongoDB](https://mongodb.com)
 
 ## Deployment
 
-To deploy this to a live system you will need an AWS S3 bucket and Google Maps API Key
+To deploy this to a live system you will need an AWS S3 bucket, Google Maps API Key, Node, and MongoDB.
 
 ## Author
 

@@ -1,7 +1,10 @@
+// File: ./models/photoModel.js
+
+// Require Mongoose and define schema
 var mongoose = require('mongoose');
 var schema   = mongoose.Schema;
 
-var photoModel = new schema({
+var photoModelSchema = new schema({
 	  id:		String,
 	  title:    String,
 	  lat:      Number,
@@ -12,5 +15,6 @@ var photoModel = new schema({
 	  uploaded: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Photo', photoModel);
+// Export function to create PhotoModel
+module.exports = mongoose.model('PhotoModel', photoModelSchema);
 

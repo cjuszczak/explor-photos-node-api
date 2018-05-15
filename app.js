@@ -1,39 +1,21 @@
-var express  = require('express');
-var mongoose = require('mongoose');
+// File: ./app.js
 
-var db    = mongoose.connect('mongoDB://localhost/photoapi');
-var photo = require('./models/photoModel');
+// Require express and photoAPI router
+var express  = require('express');
+var photoapi = require('./routes/photoAPI');
+
+// Declare and initialize express app and server port
 var app   = express();
 var port  = process.env.PORT || 8080;
 
-var router = express.Router();
-
-router.route('/camera')
-	.get(function(req, res) {
-		var query = {};
-		
-		if(req.query.camera)
-		{
-			query.camera = req.query.camera;
-		}
-
-		photo.find(query, function(err, photos) {
-			if(err)
-				res.status(500).send(err);
-			else
-				res.json(photos);
-		});
-	})
-	.post(function(req,res) {
-	
-	});
-
-app.use('/photos', router);
+// Set up routes
+app.use('/photoapi', photoapi);
 
 app.get('/', function(req, res) {
 	res.send("Test API");
 });
 
+// Start server
 app.listen(port, function() {
 	console.log('Server running on PORT: ' + port);
 });
