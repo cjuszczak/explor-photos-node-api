@@ -12,3 +12,6 @@ script: npm test
 branches:
   only:
     - master
+
+services:
+    - mongodb
