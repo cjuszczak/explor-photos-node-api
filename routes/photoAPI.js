@@ -7,5 +7,7 @@ var photosvc   = require('../modules/photoService');
 
 router.get('/photos', photosvc.list);
 
+router.post('/photos', photosvc.save);
+
 module.exports = router;
 

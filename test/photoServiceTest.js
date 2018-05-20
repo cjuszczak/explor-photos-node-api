@@ -1,24 +1,18 @@
 let chai     = require('chai');
 let chaiHttp = require('chai-http');
 let app      = require('../app');
-let assert   = require('assert');
-let mongoose = require('mongoose');
-let model    = require('../models/photoModel')
-let photosvc = require('../modules/photoService');
-
 
 chai.use(chaiHttp);
 
-describe('/photoapi/photos/GET photos', function() {
-	it('should return an empty json object', function() {
+describe('Photo API Endpoint /photos', function (done) {
+	it('should return an non-empty json object', function(done) {
 		chai.request('http://localhost:8080')
 			.get('/photoapi/photos')
-			.end((err, res) => {
-				res.should.have.status(200);
-				res.body.should.be.a('array');
-				res.body.length.should.be.eql(0);
+			.end(function(err, res) {
+				chai.expect(res).to.have.status(200);
+				chai.expect(res.body.length).to.equal(1);
+
 				done();
-			});	
+			});
 	});
 });
-
