@@ -13,10 +13,6 @@ let port  = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use('/photoapi', photoapi);
 
-app.get('/', function(req, res) {
-	res.send("Test API");
-});
-
 // Start server
 app.listen(port, function() {
 	console.log('Server running on PORT: ' + port);
