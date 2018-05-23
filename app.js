@@ -1,13 +1,13 @@
 // File: ./app.js
 
 // Require express, photoAPI router, body-parser
-var express    = require('express');
-var photoapi   = require('./routes/photoAPI');
-var bodyParser = require('body-parser');
+let express    = require('express');
+let photoapi   = require('./routes/photoAPI');
+let bodyParser = require('body-parser');
 
 // Declare and initialize express app and server port
-var app   = express();
-var port  = process.env.PORT || 8080;
+let app   = express();
+let port  = process.env.PORT || 8080;
 
 // Set up routes and bodyParser
 app.use(bodyParser.json());

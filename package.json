@@ -13,7 +13,7 @@
     "npm": "^6.0.1"
   },
   "scripts": {
-    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --exit -- -R spec ./test/*"
+    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
   },
   "repository": {
     "type": "git",

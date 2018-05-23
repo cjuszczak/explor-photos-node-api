@@ -1,20 +1,20 @@
 // File: ./modules/photoService.js
 
 // Require mongoose, connect to database, and declare/initialize data model
-var mongoose = require('mongoose');
-var db 	     = mongoose.connect('mongoDB://localhost/photoapi');
+let mongoose = require('mongoose');
+let db 	     = mongoose.connect('mongoDB://localhost/photoapi');
 let Photo    = require('../models/photoModel');
 
 // List photos
 exports.list = function(req, res) {
 	Photo.find({}, function(err, result) {
 		if(err) {
-			console.error(err);
-			return null;
+			res.set({'content-type': 'text/plain'});
+			res.status(500).send('Internal server error');
 		}
 
 		if(res != null) {
-			res.setHeader('content-type', 'application/json');
+			res.set({'content-type': 'application/json'});
 			res.status(200).send(JSON.stringify(result));
 		}
 
@@ -24,16 +24,14 @@ exports.list = function(req, res) {
 
 // Add photo to the database
 exports.save = function(req, res) {
-	let toSave = toPhoto(req.body);
+	let toSave = toPhoto(req.body, Photo);
 
 	Photo.create(toSave, function(err, result) {
 		if(err) {
-			console.error(err);
-		}
-
-		if(res != null) {
-			res.setHeader('content-type', 'application/json');
-			res.status(200).send('Photo saved to database');
+			res.status(500).json(result);
+		} else {
+			res.set('content-type', 'application/json');
+			res.status(200).json(result);
 		}
 		
 		return;
@@ -42,7 +40,7 @@ exports.save = function(req, res) {
 
 // Convert object to Photo
 function toPhoto(req, Photo) {
-	var model = new Photo({
+	return model = new Photo({
 		title:  req.title,
 		lat:    req.lat,
 		lng:    req.lng,
@@ -50,7 +48,5 @@ function toPhoto(req, Photo) {
 		camera: req.camera,
 		lens:   req.lens
 	});
-
-	return model;
 };
 

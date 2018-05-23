@@ -4,7 +4,7 @@ let app      = require('../app');
 
 describe('Photo model', function(done) {
     it('should be invalid if title/lat/lng/file is empty', function(done) {
-        var model = new Photo();
+        let model = new Photo();
 
         model.validate(function(err) {
             chai.expect(err.errors.title).to.exist;
@@ -17,7 +17,7 @@ describe('Photo model', function(done) {
     });
 
     it('should be valid if title/lat/lng/file is not empty', function(done) {
-        var model = new Photo({
+        let model = new Photo({
             title: "Test Photo",
             lat: 24.12345,
             lng: 45.67890,

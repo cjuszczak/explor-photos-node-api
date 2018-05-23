@@ -1,10 +1,10 @@
 // File: ./models/photoModel.js
 
 // Require Mongoose and define schema
-var mongoose = require('mongoose');
-var schema   = mongoose.Schema;
+let mongoose = require('mongoose');
+let schema   = mongoose.Schema;
 
-var photoModelSchema = new schema({
+let photoModelSchema = new schema({
 	  title:    { type: String, required: true },
 	  lat:      { type: Number, required: true },
 	  lng:      { type: Number, required: true },
