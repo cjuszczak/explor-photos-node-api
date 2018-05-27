@@ -13,6 +13,12 @@ let port  = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use('/photoapi', photoapi);
 
+// Catch requests that were not properly routed
+app.all('*', function(req, res) {
+	res.header({'content-type': 'text/plain'});
+	res.status(400).send('Bad Request');	
+})
+
 // Start server
 app.listen(port, function() {
 	console.log('Server running on PORT: ' + port);

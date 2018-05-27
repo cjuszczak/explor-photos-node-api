@@ -11,16 +11,43 @@ exports.list = function(req, res) {
 		if(err) {
 			res.set({'content-type': 'text/plain'});
 			res.status(500).send('Internal server error');
+			return;
 		}
 
 		if(res != null) {
 			res.set({'content-type': 'application/json'});
-			res.status(200).send(JSON.stringify(result));
+			res.status(200).json(result);
+			return;
 		}
 
-		return JSON.stringify(result);
+		return;
 	})
 };
+
+// Get specific photo details
+exports.details = function(req, res) {
+	Photo.findById(req.params.photoId, function(err, result) {
+		if(err) { 
+			res.set({'content-type': 'text/plain'});
+			res.status(500).send('Internal server error');
+			return;
+		}
+
+		if(!result) {
+			res.set({'content-type': 'text/plain'});
+			res.status(404).send('Not Found');
+			return;
+		}
+
+		if(res != null) {
+			res.set({'content-type': 'application/json'});
+			res.status(200).json(result);
+			return;
+		}
+
+		return;
+	})
+}
 
 // Add photo to the database
 exports.save = function(req, res) {
@@ -29,9 +56,11 @@ exports.save = function(req, res) {
 	Photo.create(toSave, function(err, result) {
 		if(err) {
 			res.status(500).json(result);
+			return;
 		} else {
 			res.set('content-type', 'application/json');
-			res.status(200).json(result);
+			res.status(201).json(result);
+			return;
 		}
 		
 		return;
