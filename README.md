@@ -20,7 +20,7 @@ npm install
 
 ## Running Tests
 
-This repo includes some basic testing that don't really meet the definition of true unit tests but allow you to test the API calls and show their appropriate responses. To run the tests and generate a coverage report:
+This repo includes some basic tests that don't really meet the definition of true unit tests but allow you to run the API calls and show their appropriate responses. To run the tests and generate a coverage report:
 
 ```bash
 npm test
