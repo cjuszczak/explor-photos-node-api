@@ -8,45 +8,35 @@ let Photo    = require('../models/photoModel');
 // List photos
 exports.list = function(req, res) {
 	Photo.find({}, function(err, result) {
-		if(err) {
+		if(res != null && err == null) {
+			res.set({'content-type': 'application/json'});
+			res.status(200).json(result);
+			return;
+		} else { 
 			res.set({'content-type': 'text/plain'});
 			res.status(500).send('Internal server error');
 			return;
 		}
-
-		if(res != null) {
-			res.set({'content-type': 'application/json'});
-			res.status(200).json(result);
-			return;
-		}
-
-		return;
-	})
+	});
 };
 
 // Get specific photo details
 exports.details = function(req, res) {
 	Photo.findById(req.params.photoId, function(err, result) {
-		if(err) { 
+		if(!result && !err) {
+			res.set({'content-type': 'text/plain'});
+			res.status(404).send('Not Found');
+			return;
+		} else if(res != null && !err) {
+			res.set({'content-type': 'application/json'});
+			res.status(200).json(result);
+			return;
+		} else {
 			res.set({'content-type': 'text/plain'});
 			res.status(500).send('Internal server error');
 			return;
 		}
-
-		if(!result) {
-			res.set({'content-type': 'text/plain'});
-			res.status(404).send('Not Found');
-			return;
-		}
-
-		if(res != null) {
-			res.set({'content-type': 'application/json'});
-			res.status(200).json(result);
-			return;
-		}
-
-		return;
-	})
+	});
 }
 
 // Add photo to the database
@@ -62,8 +52,6 @@ exports.save = function(req, res) {
 			res.status(201).json(result);
 			return;
 		}
-		
-		return;
 	});
 }
 
