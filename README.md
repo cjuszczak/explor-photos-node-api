@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/cjuszczak/explorphotos.svg?branch=master)](https://travis-ci.org/cjuszczak/explorphotos) [![Coverage Status](https://coveralls.io/repos/github/cjuszczak/explorphotos/badge.svg?branch=master)](https://coveralls.io/github/cjuszczak/explorphotos?branch=master) 
+[![Build Status](https://travis-ci.org/cjuszczak/explor-photos-node-api.svg?branch=master)](https://travis-ci.org/cjuszczak/explor-photos-node-api) [![Coverage Status](https://coveralls.io/repos/github/cjuszczak/explorphotos/badge.svg?branch=master)](https://coveralls.io/github/cjuszczak/explorphotos?branch=master) 
 
 # Explor.photos
 
