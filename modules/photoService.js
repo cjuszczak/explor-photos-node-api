@@ -2,7 +2,8 @@
 
 // Require mongoose, connect to database, and declare/initialize data model
 let mongoose = require('mongoose');
-let db 	     = mongoose.connect('mongoDB://localhost/photoapi');
+let dbUrl	 = process.env.NODE_DB || 'mongoDB://localhost/photoapi';
+let db 	     = mongoose.connect(dbUrl);
 let Photo    = require('../models/photoModel');
 
 // List photos
